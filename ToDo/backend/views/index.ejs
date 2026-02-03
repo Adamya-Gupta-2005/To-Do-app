@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>TO DO List</h1>
+    <div id="container">
+        <form id="input-section" action="/submit" method="post">
+            <input id="todoInput" name="title" placeholder="Enter todo">
+            <button type="submit" id="adding">Add</button>
+        </form>
+       
+        <% if(todos.length > 0) {%>
+        <div id="content-section">
+            <ul id="todo-list">
+                
+                <% todos.forEach((todo,index) => { %>
+                    <li><p><%=todo %></p>
+                    <div>
+                        <form action="/submit/delete" method="post">
+                            <input type="hidden" value="<%=index%>">
+                            <button  id="delete" type="submit">Delete</button>
+                        </form>
+                    </div>
+                    </li>   
+                <%}); %>
+            </ul>
+        </div>
+        <% } %>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
