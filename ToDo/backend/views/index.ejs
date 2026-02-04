@@ -16,15 +16,15 @@
             <button type="submit" id="adding">Add</button>
         </form>
        
-        <% if(todos.length > 0) {%>
+        <% if(todo.length > 0) {%>
         <div id="content-section">
             <ul id="todo-list">
                 
-                <% todos.forEach((todo,index) => { %>
-                    <li><p><%=todo %></p>
+                <% todo.forEach((t,index) => { %>
+                    <li><p><%=t.title%></p>
                     <div>
                         <form action="/submit/delete" method="post">
-                            <input type="hidden" value="<%=index%>">
+                            <input type="hidden" name="id" value="<%=t._id%>">
                             <button  id="delete" type="submit">Delete</button>
                         </form>
                     </div>
